@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Interactive Web</title>
+    <style>
+      @keyframes sample-ani {
+        0% {
+            transform: translate(0, 0);
+        }
+        50% {
+            transform: translate(500px, 0);
+        }
+        100% {
+            transform: translate(700px, 500px);
+        }
+      }
+
+      .box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100px;
+        height: 100px;
+        background: #fff000;
+        border: 2px solid black;
+        animation: sample-ani 2s linear infinite;
+        /* 
+        animation: key_name duration_time timing function interation-count<number | infinite>
+        */
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Animation</h1>
+    <div class="box">BOX</div>
+  </body>
+</html>

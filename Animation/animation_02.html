@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Interactive Web</title>
+    <style>
+      /* 
+        @keyframes
+        Transition과 다르게 퍼센테이지로 포인트를 지정하여 애니메이션의 중간에 변화를 줄 수 있다.
+      */
+      @keyframes sample-ani {
+        0% {
+            transform: translate(0, 0);
+        }
+        50% {
+            transform: translate(300px, 0);
+        }
+        100% {
+            transform: translate(400px, 500px);
+        }
+      }
+
+      .box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100px;
+        height: 100px;
+        background: #fff000;
+        border: 2px solid black;
+        animation: sample-ani 3s linear infinite alternate;
+      }
+
+      .box:hover {
+          animation-play-state: paused;
+      }
+      /* 
+      animation: key_name duration_time timing function interation-count<number | infinite> direction
+
+      animation-direction
+      - alternate 다시 되돌아감 0%-> 100%-> 0%
+      - reverse 100% -> 0%로 진행
+      - alternate-reverse 둘다 적용
+
+
+      animation-fill-mode
+      - forwards 끝나고 100% 상태로 그대로 멈춤
+
+      animation-play-state
+      - running(default)
+      - paused
+      */
+    </style>
+  </head>
+  <body>
+    <h1>Animation</h1>
+    <div class="box">BOX</div>
+  </body>
+</html>
