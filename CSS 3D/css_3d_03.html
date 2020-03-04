@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Interactive Web</title>
+    <style>
+      .world {
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        width: 80vw;
+        height: 80vh;
+        background: #fff000;
+        perspective: 500px; /* 원근감을 주는 프로퍼티 값은 거리를 의미한다 */
+      }
+
+      .world:hover .card-side-front {
+        transform: rotateY(-130deg);
+      }
+
+      .world:hover .card-side-back {
+        transform: rotateY(50deg);
+      }
+
+      .card {
+        position: relative;
+        width: 100px;
+        height: 150px;
+        margin: 1em;
+        transform: rotateY(0deg); /* 디폴트 상태를 주면 브라우저가 미리 준비 해두기때문에 성능 향상 효과가 있다. */
+        transition: 1s;
+        transform-style: preserve-3d; /* ie 지원안됨 */
+        transform-origin: left; /* 트랜스폼 변화 기준점 변경 */
+      }
+      
+      .card-side {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: .5em;
+        font-size: 1.5rem;
+        position: absolute;
+        width: 100px;
+        height: 150px;
+        margin-top: -75px;
+        margin-left: -50px;
+        left: 50%;
+        top: 50%;
+        transition: 1s;
+        transform-origin: left; /* 트랜스폼 변화 기준점 변경 */
+        -webkit-backface-visibility: hidden; /* safari */
+        -moz-backface-visibility: hidden; /* firefox */
+        -o-backface-visibility: hidden; /* opera */
+        backface-visibility: hidden; /* 뒷면을 안보이게 한다. chrome */
+      }
+
+      .card-side-front {
+          z-index: 1;
+          background: white;
+      }
+
+      .card-side-back {
+          background: red;
+          transform: rotateY(180deg);
+      }
+
+
+      /*
+        em은 현재 엘리먼트의 폰트 사이즈를 기준으로 비례적으로 변한다.
+        absolute의 기준점을 바디가 아닌 부모 엘리먼트가 되게 하고 싶으면 부모 엘리먼트를 static이 아닌 포지션으로 잡아 주면 된다.
+        perspective 프로퍼티는 엘리먼트가 중첩되면 효과가 점점 사라진다. 그래서 transform-style을 preserve-3d로 해준다.
+      */
+      
+    </style>
+  </head>
+  <body>
+    <div class="world">
+        <!-- <div class="card"> -->
+            <div class="card-side card-side-front">F</div>
+            <div class="card-side card-side-back">B</div>
+        <!-- </div> -->
+    </div>
+  </body>
+</html>
