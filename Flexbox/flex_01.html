@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Interactive Web</title>
+    <style>
+        .container {
+            display: flex;
+            /* flex-direction: column; */
+            height: 80vh;
+            align-items: center;
+            justify-content: center;
+            background: grey;
+        }
+
+        .item {
+            flex-grow: 1; /* 여백 비율값 - 컨텐츠박스를 크기를 제외하고 남을 여백을 형제 엘리먼트끼리 지정 비율만큼 나눠같는다 */
+            flex-shrink: 1; 
+            flex-basis: 0%; /* 컨텐츠 박스 비율 - grow와는 다르게 여백이 아닌 컨텐츠 너비의 비율을 정한다. 기본값은 auto이다. */
+            flex: 1; /* 축약형 - default grow: 1, shrink: 1, basis: 0% */
+            padding: 1em;
+            border: 3px solid black;
+            background: white;
+        }
+
+        /* .item:nth-child(1) { flex-grow: 1;}
+        .item:nth-child(2) { flex-grow: 2;}
+        .item:nth-child(3) { flex-grow: 3;}
+        .item:nth-child(4) { flex-grow: 4;}
+        .item:nth-child(5) { flex-grow: 5;} */
+
+        /*
+            flex box의 자식 엘리먼트는 기본적으로 높이가 부모 엘리먼트의 100%로 잡힌다.
+            flex-direction은 축의 방향을 지정하는 프로퍼티이며, 가로 축은 row, 세로 축은 column이다.
+            
+            justify-content은 축을 기준으로 정렬 방식을 지정하는 프로퍼티이다. flex-start, flex-end, center, space-between, space-around
+            축이 기준이라는게 핵심이다.
+
+            align-items는 축을 기준으로 수직방향 정렬 방식을 지정하는 프로퍼티이다.
+            flex box의 자식 엘리먼트는 기본적으로 높이가 부모 엘리먼트의 100%로 잡힌다.
+            그 이유는 align-items이 축의 수직을 엘리먼트로 꽉 채우는 stretch가 기본 값이기때문이다. 
+
+        */
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">AAA</div>
+        <div class="item">B</div>
+        <div class="item">CCCCC</div>
+        <div class="item">DDD</div>
+        <div class="item">E</div>
+    </div>
+</body>
+</html>
