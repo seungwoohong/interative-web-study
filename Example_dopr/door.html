@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Interactive Web</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .stage {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100vw;
+            height: 100vh;
+            background: #333;
+        }
+
+        .door {
+            position: relative;
+            width: 100px;
+            height: 150px;
+        }
+
+        .door > .back {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            overflow: hidden
+        }
+
+        .door .square {
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            width: 50px;
+            height: 50px;
+            transform: translate3d(110%, 0, 0);
+            transition: 0.5s 0.5s;
+        }
+
+        .door:nth-child(1) .square { background: red }
+        .door:nth-child(2) .square { background: green }
+        .door:nth-child(3) .square { background: blue }
+
+        .door > .body {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            transition: 0.5s;
+            transform-origin: left;
+        }
+
+        .door:nth-child(1) .body { background: rgba(255, 0, 0, .7 );}
+        .door:nth-child(2) .body { background: rgba(0, 255, 0, .7 );}
+        .door:nth-child(3) .body { background: rgba(0, 0, 255, .7 );}
+
+        .door:hover .body {
+            transform: perspective(800px) rotateY(-110deg);
+        }
+
+        .door:hover .square {
+            transform: translate3d(-50%,0,0);
+        }
+    </style>
+</head>
+<body>
+    <div class="stage">
+        <div class="door">
+            <div class="back">
+                <div class="square"></div>
+            </div>
+            <div class="body"></div>
+        </div>
+        <div class="door">
+            <div class="back">
+                <div class="square"></div>
+            </div>
+            <div class="body"></div>
+        </div>
+        <div class="door">
+            <div class="back">
+                <div class="square"></div>
+            </div>
+            <div class="body"></div>
+        </div>
+    </div>
+</body>
+</html>
