@@ -64,11 +64,11 @@
         .door:nth-child(2) .body { background: rgba(0, 255, 0, .7 );}
         .door:nth-child(3) .body { background: rgba(0, 0, 255, .7 );}
 
-        .door:hover .body {
+        .door.opend .body {
             transform: perspective(800px) rotateY(-110deg);
         }
 
-        .door:hover .square {
+        .door.opend .square {
             transform: translate3d(-50%,0,0);
         }
     </style>
@@ -94,5 +94,26 @@
             <div class="body"></div>
         </div>
     </div>
+    <script>
+        (function() {
+            const stageElem = document.querySelector('.stage');
+            let currentElem;
+
+            function doorClickHandler(e) {
+                const targetElem = e.target;
+
+                if (currentElem) {
+                    currentElem.parentNode.classList.remove('opend');
+                }
+
+                if (targetElem.classList.contains('body')) {
+                    targetElem.parentNode.classList.add('opend');
+                    currentElem = targetElem;
+                }
+            }
+
+            stageElem.addEventListener('click', doorClickHandler);
+        })();
+    </script>
 </body>
 </html>
