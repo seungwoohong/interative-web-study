@@ -19,7 +19,7 @@
 
     function onMouseMove(e) {
         mousePos.x = -1 + (e.clientX / window.innerWidth) * 2;
-        mousePos.y = 1 + (e.clientY / window.innerHeight) * 2;
+        mousePos.y = 1 - (e.clientY / window.innerHeight) * 2;
 
         $stage.style.transform = 'rotateX(' + (mousePos.y * 5) + 'deg) rotateY(' + (mousePos.x * 5) + 'deg)';
     }
@@ -27,6 +27,14 @@
     window.addEventListener('scroll', onScroll);
     window.addEventListener('resize', resizeHandler);
     window.addEventListener('mousemove', onMouseMove);
+
+    $stage.addEventListener('click', function() {
+        const options = {
+            xPos: e.clientX / window.innerWidth * 100
+        };
+        
+        new Character(options);
+    })
 
     resizeHandler();
 })();
