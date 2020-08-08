@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SVG</title>
+    <style>
+      .shapes {
+        width: 500px;
+        height: 500px;
+        background: gray;
+      }
+      .rect {
+        fill: orange;
+        stroke: orangered;
+        stroke-width: 1em;
+      }
+      .circle {
+        fill: olive;
+      }
+      .ellipse {
+        fill: darkcyan;
+      }
+      .g1 {
+        fill: yellowgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <svg class="shapes">
+      <!-- 
+        rect 사각형
+        * x - x 위치 
+        * y - y 위치
+        * rx - radius x 꼭지점 x 반지름
+        * ry - radius y 꼭지점 y 반지름
+        * width - 너비
+        * height - 높이
+    -->
+      <!-- g태그는 그룹의 약자로 말 그대로 그룹을 지어준다. HTML를 작성할때 하나의 영역을 래핑하는 것과 비슷하다고 생각하면 된다.-->
+      <g class="g1">
+        <rect x="10" y="20" class="rect" width="200" height="200" />
+        <rect
+          x="10"
+          y="250"
+          rx="10"
+          ry="10"
+          class="rect"
+          width="200"
+          height="200"
+        />
+      </g>
+      <!-- 
+        circle 원
+        * cx - center x 중앙점의 x위치 
+        * cy - center y 중앙점의 y위치 
+        * r - 원의 크기(반지름)
+        -->
+      <circle cx="350" cy="250" r="30" class="circle" />
+      <!-- 
+        ellipse 타원
+        * cx - center x 중앙점의 x위치 
+        * cy - center y 중앙점의 y위치 
+        * rx - 원의 x축 크기(반지름) 
+        * ry - 원의 y축 크기(반지름)
+        * fill - 도형 색
+        * stroke - 테두리 선 색
+        -->
+      <ellipse
+        cx="350"
+        cy="400"
+        rx="100"
+        ry="50"
+        fill="darkcyan"
+        stroke="red"
+      />
+      <!--
+        line 선
+        x1 - 시작점 x 좌표
+        x2 - 끝점 x 좌표
+        y1 - 시작점 y 좌표
+        y2 - 끝점 y 좌표
+      -->
+      <line x1="10" x2="400" y1="30" y2="300" stroke="blue" />
+      <!--
+        polyline 선을 여러개 이어 그릴 수 있다.
+        points - 선을 이을 각 점의 위치를 넣는다.
+        stroke-width - 선의 너비
+        -->
+      <polyline
+        points="0 0, 200 100, 150 300, 0 0"
+        stroke="red"
+        stroke-width="10"
+      />
+      <!--
+        polygon polyline과 똑같이 선을 여러개 이어 그릴 수 있다. 
+        둘의 차이점은 polygon은 시작점과 마지막을 연결하여 도형으로 만들어준다. polyline은 시작점과 마지막점을 이어주지 않고 각 점에 선만 잇고 끝난다.
+        그래서 만약 polyline으로 시작점과 마지막점을 이어주고 싶다면 마지막점 포인트 뒤에 시작점 포인트를 추가로 넣어주면 된다.
+        points - 선을 이을 각 점의 위치를 넣는다. eg. points="x1 y1, x2 y2, x3 y3, x4 y4"
+        stroke-width - 선의 너비
+        -->
+      <!-- <polygon points="0 0, 200 100, 150 300" stroke="red" /> -->
+    </svg>
+  </body>
+</html>
+<!-- 한 가지 신기한건 일단 엘리먼트는 반대로 css class가 태그에 직접 넣은 속성값(fill, stroke) 값들보다 높은 우선순위를 갖는다-->
+<!-- 그리고 또 한 가지 css와는 다르게 위에 선언된 스타일이 밑에 선언된 스타일보다 우선 순위가 높다 -->

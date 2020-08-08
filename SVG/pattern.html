@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SVG</title>
+    <style>
+      svg {
+        width: 500px;
+        height: 500px;
+        background: #ddd;
+      }
+      .pattern-circle {
+        fill: #fff000;
+      }
+      .bg-rect {
+        fill: url("#bg-pattern");
+      }
+    </style>
+  </head>
+  <body>
+    <svg viewBox="0 0 1000 1000">
+      <defs>
+        <!-- pattern은 말 그대로 패턴을 만드는 태그다. width height로 자식들이 차지할 크기를 정한다. -->
+        <pattern id="bg-pattern" x="0" y="0" width="0.1" height="0.1">
+          <circle cx="50" cy="50" r="50" class="pattern-circle"></circle>
+        </pattern>
+      </defs>
+      <rect class="bg-rect" x="0" y="0" width="100%" height="100%" />
+    </svg>
+  </body>
+</html>

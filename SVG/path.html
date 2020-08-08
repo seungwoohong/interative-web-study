@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SVG</title>
+  </head>
+  <style>
+    .path {
+      stroke: tomato;
+      stroke-width: 5;
+      fill: transparent;
+    }
+  </style>
+  <body>
+    <!--
+        path - 자유 그리기 like 펜툴
+        * d - path를 설정
+            * d > M 시작점 위치 x y
+            * d > L 직선 x y
+            * d > H 가로 직선 x y
+            * d > V 세로 직선 x y
+            * d > C 코너 시작점 x y, 코너점 x y, 끝점 x y
+            * stroke-linecap - 선의 끝모양 처리
+            * stroke-join - 꼭지점 모양 처리
+      -->
+    <svg width="500" height="400" xmlns="http://www.w3.org/2000/svg">
+      <path class="path" d="M 300 200 L 500 100 H 50 V 200 Z" />
+      <path
+        class="path"
+        d="M 100 150 C 100 150, 300 40, 400 200 H 100 V 100"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  </body>
+</html>

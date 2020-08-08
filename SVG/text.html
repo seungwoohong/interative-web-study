@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <svg class="svg" xmlns="http://www.w3.org/2000/svg">
+      <style>
+        .svg {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+        }
+        .text {
+          font-size: 1em;
+          font-weight: bold;
+          fill: yellowgreen;
+        }
+        path {
+          stroke: red;
+          fill: transparent;
+        }
+        tspan {
+          fill: purple;
+        }
+      </style>
+      <!-- text는 일반 css와 동일하게 작성을 하면 되는데, 색상만 fill 속성을 사용한다. -->
+      <!-- defs 태그는 참조용으로 쓰기 위한 것들을 모아둔다. 이 안에 있는 것들은 hide된다. like hidden input -->
+      <defs>
+        <path
+          id="text-curve"
+          d="M 50 400 C 50 400, 300 500, 400 400 C 400 400, 600 170, 700 300"
+        />
+      </defs>
+      <text class="text" x="20" y="50">
+        <!-- textPath는 path를 연결한 text를 위한 태그로 href 속성에 참조값을 넣으면 path대로 모양이 잡힌다. -->
+        <textPath href="#text-curve">
+          Lorem ipsum
+          <!-- tspan은 부분 텍스트 스타일링을 위한 태그이다. 텍스트 강조를 위한 strong 태그도 있지만 사용하게 되면 path를 따라가지 못한다. -->
+          <tspan>dolor</tspan>
+          sit amet consectetur adipisicing elit. Eos quam harum aspernatur esse,
+          earum tempora facere consectetur officiis praesentium labore ratione
+          explicabo alias recusandae dignissimos quibusdam tenetur veritatis
+          saepe culpa!
+        </textPath>
+      </text>
+    </svg>
+  </body>
+</html>
