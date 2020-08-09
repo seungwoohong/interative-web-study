@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SVG</title>
+  </head>
+  <style>
+    circle {
+      fill: transparent;
+      stroke: black;
+      stroke-width: 5px;
+      stroke-dasharray: 700;
+      stroke-dashoffset: 0;
+      animation: dash-ani 3s alternate;
+    }
+    path {
+      stroke: #000;
+      stroke-width: 5;
+      stroke-dasharray: 727;
+      fill: transparent;
+      animation: dash-ani 3s alternate;
+    }
+    @keyframes dash-ani {
+      to {
+        stroke-dashoffset: 0;
+      }
+      from {
+        stroke-dashoffset: 700;
+      }
+    }
+  </style>
+  <body>
+    <svg viewBox="0 0 800 500">
+      <circle cx="400" cy="250" r="100" />
+      <path
+        d="M 50 400 C 50 400, 300 500, 400 400 C 400 400, 600 170, 700 300"
+      />
+    </svg>
+  </body>
+</html>
